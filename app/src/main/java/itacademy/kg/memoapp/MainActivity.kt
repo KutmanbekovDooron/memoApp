@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(){
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         nav.setNavigationItemSelectedListener{
-            when(it.itemId){
+            when(it.itemId) {
                 R.id.main -> supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment_continer,MainFragment())
                     commit()
