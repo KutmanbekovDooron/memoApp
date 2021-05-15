@@ -38,6 +38,7 @@ class MainFragment : Fragment(), onItamClickListener1 {
         list.add(Memo("gnvgjn","Продукты", Date()))
         list.add(Memo("fhngnnvmbnfm","gngvjmghjmvnd", Date()))
         list.add(Memo("Shhmbjmh,n b, opping","Продfnghbtgnfhgукты", Date()))
+
         listAdaptor = MemoAdapter(list,this)
         Utils.detailsList = list
 
@@ -66,14 +67,22 @@ class MainFragment : Fragment(), onItamClickListener1 {
     }
 
     override fun ondeleteClick(posision: Int) {
-        Toast.makeText(context,"On Delete Click",Toast.LENGTH_SHORT).show()
         list.removeAt(posision)
         listAdaptor.notifyDataSetChanged()
 
     }
 
     override fun onEditeClick(posision: Int) {
-        Toast.makeText(context,"On Edite Click",Toast.LENGTH_SHORT).show()
+        val bundle = Bundle()
+        bundle.putSerializable(Utils.KEYMEMOEDIT,list[posision])
+        val fragment = EditFragment()
+        fragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_continer,fragment)
+            addToBackStack(null)
+            commit()
+        }
     }
 
     fun setFragment(fragment: Fragment){

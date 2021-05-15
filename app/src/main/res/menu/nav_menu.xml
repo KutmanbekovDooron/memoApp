@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/main"
+        android:title="Main"
+        android:icon="@drawable/ic_baseline_info_24"/>
+    <item android:id="@+id/about"
+        android:title="About"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+    <item android:id="@+id/exit"
+        android:title="Exit"
+        android:icon="@drawable/ic_baseline_transit_enterexit_24"/>
+
+    <item android:id="@+id/edit_menu"
+        android:title="Edit avatar"
+        android:icon="@drawable/ic_baseline_edit_24"/>
+</menu>
