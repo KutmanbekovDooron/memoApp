@@ -1,5 +1,6 @@
 package itacademy.kg.memoapp.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import itacademy.kg.memoapp.R
 class FragmentEditAvatar : Fragment(), View.OnClickListener{
 
     lateinit var avatar : ImageView
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -26,6 +28,9 @@ class FragmentEditAvatar : Fragment(), View.OnClickListener{
         val gmail = view.findViewById<EditText>(R.id.gmail_avatar)
 
         val resoult = name.text.toString()
+
+        val view = LayoutInflater.from(context).inflate(R.layout.header,null)
+        val avatarMain = view.findViewById<ImageView>(R.id.avatar)
 
 
         //avatars
@@ -55,7 +60,7 @@ class FragmentEditAvatar : Fragment(), View.OnClickListener{
 
 
         view.findViewById<Button>(R.id.chenge_button).setOnClickListener{
-
+            avatarMain.setImageResource(avatar.id)
         }
 
         super.onViewCreated(view, savedInstanceState)
@@ -64,10 +69,10 @@ class FragmentEditAvatar : Fragment(), View.OnClickListener{
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.avatar1 -> Toast.makeText(context,"avatar1",Toast.LENGTH_SHORT).show()
+            R.id.avatar1 -> avatar = v.findViewById(R.id.avatar1)
             R.id.avatar2 -> avatar = v.findViewById(R.id.avatar2)
             R.id.avatar3 -> avatar = v.findViewById(R.id.avatar3)
-            R.id.avatar4 -> avatar.setImageResource(v.id)
+            R.id.avatar4 -> avatar = v.findViewById(R.id.avatar4)
             R.id.avatar5 -> avatar.setImageResource(v.id)
             R.id.avatar6 -> avatar.setImageResource(v.id)
             R.id.avatar7 -> avatar.setImageResource(v.id)

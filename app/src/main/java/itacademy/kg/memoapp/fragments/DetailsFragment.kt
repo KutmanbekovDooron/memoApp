@@ -32,9 +32,11 @@ class DetailsFragment : Fragment() {
         val bundle = this.arguments
         val memo= bundle?.getSerializable(Utils.KEY) as Memo //Memo))
 
+        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+
         name.setText(memo.memoTitle)
         discription.setText(memo.memoDesc)
-        data.setText(memo.date.toString())
+        data.setText(sdf.format(memo.date).toString())
 
     }
 
